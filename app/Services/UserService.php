@@ -9,10 +9,9 @@ class UserService
 {
     protected $user;
 
-
     public function __construct()
     {
-        $this->user = new User();
+        $this->user = new User;
     }
 
     /**
@@ -40,7 +39,7 @@ class UserService
      */
     public function store(array $attributes)
     {
-        $attributes['password'] = Helper::randomPassword();
+        $attributes['password'] = Helper::randomCode();
 
         $user = $this->user->newInstance($attributes);
 

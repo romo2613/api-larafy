@@ -11,7 +11,7 @@ class Helper
      * Genera una contraseña aleatoria con la longitud dada. Por defecto longitud 8
      * @param $length longitud de la contraseña
      */
-    static function randomPassword(int $length = 8)
+    static function randomCode(int $length = 8)
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+';
         $password = '';

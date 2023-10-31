@@ -21,11 +21,11 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
-        // dd($this->user->id);
+        // dd($this->user);
         return [
             'name'                  => 'required|string|max:255',
             'surname'               => 'required|string|max:255',
-            'email'                 => 'required|unique:users,email,'.$this->user->id,
+            'email'                 => 'required|email|max:255|unique:users,email,'.$this->user?->id,
             'country_id'            => 'nullable|exists:countries,id',
         ];
     }
