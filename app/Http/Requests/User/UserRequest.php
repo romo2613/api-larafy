@@ -4,7 +4,7 @@ namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterUserRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,12 +21,11 @@ class RegisterUserRequest extends FormRequest
      */
     public function rules(): array
     {
+        // dd($this->user->id);
         return [
             'name'                  => 'required|string|max:255',
             'surname'               => 'required|string|max:255',
-            'email'                 => 'required|unique:users,email',
-            'password'              => 'required|min:8|max:255|confirmed',
-            'password_confirmation' => 'required|min:8|max:255',
+            'email'                 => 'required|unique:users,email,'.$this->user->id,
             'country_id'            => 'nullable|exists:countries,id',
         ];
     }
