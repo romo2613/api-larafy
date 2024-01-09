@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="storage/app/public/images/16_9_d2b8b9b6-2e70-4998-88e5-b1f44619e447.jpeg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><img src="https://raw.githubusercontent.com/romo2613/api-larafy/main/public/images/16_9_d2b8b9b6-2e70-4998-88e5-b1f44619e447.jpeg" width="400" alt="Laravel Logo"></p>
 
 <!-- <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
