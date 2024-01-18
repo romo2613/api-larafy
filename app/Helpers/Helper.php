@@ -8,10 +8,11 @@ namespace App\Helpers;
 class Helper
 {
     /**
-     * Genera una contraseña aleatoria con la longitud dada. Por defecto longitud 8
-     * @param $length longitud de la contraseña
+     * Genera un código aleatorio con la longitud dada. Por defecto la longitud es 8
+     * @param int $length longitud de la contraseña
+     * @return string
      */
-    static function randomCode(int $length = 8)
+    static function randomCode(int $length = 8): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+';
         $password = '';

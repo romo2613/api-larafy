@@ -7,11 +7,13 @@ use App\Models\Country;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class CountrySeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Crea los paises obtenidos a traves del helper CountriesHelper.
+     * @return void
      */
     public function run(): void
     {

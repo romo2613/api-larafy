@@ -11,7 +11,8 @@ use App\Helpers\Helper;
 class UserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * creacion de usuarios por defecto y ficticios
+     * @return void
      */
     public function run(): void
     {

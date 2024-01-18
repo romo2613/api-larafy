@@ -5,32 +5,53 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\LoginUserAuthRequest;
 use App\Http\Requests\Auth\RegisterUserAuthRequest;
 use App\Services\AuthService;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Auth\AuthenticationException;
+
 
 class AuthController extends Controller
 {
-    protected $authService;
+    /**
+     * constructor
+     * @param AuthService $authService
+     */
+    public function __construct(protected AuthService $authService) {}
 
-    public function __construct(AuthService $authService)
+    /**
+     * Procesa la peticion http de login.
+     * @param LoginUserAuthRequest $request
+     * @return JsonResponse
+     */
+    public function login(LoginUserAuthRequest $request): JsonResponse
     {
-        $this->authService = new AuthService;
+        try
+        {
+            $data = $request->validated();
+
+            $userLogin = $this->authService->login($data);
+
+            return response()->json($userLogin);
+
+        }
+        catch (AuthenticationException $e)
+        {
+            return response()->json($e->getMessage(), 401);
+        }
+
     }
 
-    public function login(LoginUserAuthRequest $request)
-    {
-        $data = $request->validated();
-
-        $userLogin = $this->authService->login($data);
-
-        return $userLogin;
-    }
-
-    public function register(RegisterUserAuthRequest $request)
+    /**
+     * Procesa la peticion http de registro.
+     * @param RegisterUserAuthRequest $request
+     * @return JsonResponse
+     */
+    public function register(RegisterUserAuthRequest $request): JsonResponse
     {
         $data = $request->validated();
 
         $registerUser = $this->authService->register($data);
 
-        return $registerUser;
+        return response()->json($registerUser);
     }
 
 }

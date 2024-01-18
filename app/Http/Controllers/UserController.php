@@ -5,21 +5,23 @@ namespace App\Http\Controllers;
 use App\Http\Requests\User\UserRequest;
 use App\Models\User;
 use App\Services\UserService;
+use Illuminate\Http\JsonResponse;
 
 class UserController extends Controller
 {
 
-    protected $userService;
+    /**
+     * Constructor
+     * @param UserService $userService
+     */
 
-    public function __construct(UserService $userService)
-    {
-        $this->userService = $userService;
-    }
+    public function __construct(protected UserService $userService) {}
 
     /**
-     * Display a listing of the resource.
+     * retorna un listado json de usuarios
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
         $users = $this->userService->index();
 
@@ -27,9 +29,11 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Guarda un usuario y lo retorna
+     * @param UserRequest $request
+     * @return JsonResponse
      */
-    public function store(UserRequest $request)
+    public function store(UserRequest $request): JsonResponse
     {
         $data = $request->validated();
 
@@ -39,17 +43,21 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * retorna un usuario específico
+     * @param User $user
+     * @return JsonResponse
      */
-    public function show(User $user)
+    public function show(User $user): JsonResponse
     {
         return response()->json($user);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza un usuario y lo retorna
+     * @param User $user
+     * @return JsonResponse
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request, User $user): JsonResponse
     {
         $data = $request->validated();
 
@@ -59,9 +67,11 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un usuario y lo retorna
+     * @param User $user
+     * @return JsonResponse
      */
-    public function destroy(User $user)
+    public function destroy(User $user): JsonResponse
     {
         $user = $this->userService->destroy($user);
 

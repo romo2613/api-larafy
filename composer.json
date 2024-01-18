@@ -30,7 +30,8 @@
         },
         "files": [
             "app/Helpers/CountriesHelper.php",
-            "app/Helpers/Helper.php"
+            "app/Helpers/Helper.php",
+            "app/Helpers/ConsoleOutputHelper.php"
         ]
     },
     "autoload-dev": {
