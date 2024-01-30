@@ -2,11 +2,12 @@
 
 namespace App\Services;
 
+use App\Interfaces\User\AuthServiceInterface;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\AuthenticationException;
 
-class AuthService
+class AuthService implements AuthServiceInterface
 {
 
     public function __construct
@@ -38,7 +39,7 @@ class AuthService
      * @param array $attributes Parámetros de inicio de sesión
      * @return array|AuthenticationException Si falla el login retornamos una excepción
      */
-    public function login(array $attributes): array
+    public function login(array $attributes): array|AuthenticationException
     {
         if (!Auth::attempt($attributes)) {
             throw new AuthenticationException();

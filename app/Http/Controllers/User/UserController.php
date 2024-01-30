@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserRequest;
 use App\Models\User;
 use App\Services\UserService;
@@ -9,7 +10,6 @@ use Illuminate\Http\JsonResponse;
 
 class UserController extends Controller
 {
-
     /**
      * Constructor
      * @param UserService $userService

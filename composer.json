@@ -28,11 +28,7 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         },
-        "files": [
-            "app/Helpers/CountriesHelper.php",
-            "app/Helpers/Helper.php",
-            "app/Helpers/ConsoleOutputHelper.php"
-        ]
+        "files": []
     },
     "autoload-dev": {
         "psr-4": {

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            AlbumSeeder::class
         ]);
     }
 }

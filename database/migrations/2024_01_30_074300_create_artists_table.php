@@ -11,21 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('artists', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
             $table->string('name');
-            $table->string('surname');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('description', 1000);
             $table->foreignId('country_id')
-                ->nullable()
                 ->constrained();
-            $table->string('profile_photo_path')
-                ->nullable()
-                ->default('NULL');
-            $table->rememberToken();
+            $table->string('photo_url');
             $table->timestamps();
         });
     }
@@ -35,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('artists');
     }
 };

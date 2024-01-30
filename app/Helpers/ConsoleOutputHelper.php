@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 class ConsoleOutputHelper extends ConsoleOutput
 {
     /**
-     * muestra un mensaje en la consola en color verde
+     * muestra un mensaje en la consola
      * @param string $message Mensaje a mostrar
      * @param $options Máscara de bits de opciones (una de las constantes OUTPUT o VERBOSITY), 0 se considera lo mismo que self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL
      * @param $color Color del mensaje
@@ -21,8 +21,6 @@ class ConsoleOutputHelper extends ConsoleOutput
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
 
         $out->writeln("\n  <bg=blue> INFO </> $messages \n");
-
-        // $out->writeln("$messages\n", $options);
     }
 
 }

@@ -28,16 +28,34 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
 
-        $this->routes(function () {
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/models/userRoutes.php'));
-
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+        $this->routes(function(){
+            $this->mapApiRoutes();
+            $this->mapWebRoutes();
         });
+    }
+
+    /**
+     * Contiene el mapeo de rutas con el middleware 'api'
+     * @return void
+     */
+    protected function mapApiRoutes(): void
+    {
+        Route::middleware('api')
+            ->prefix('api')
+            ->group(base_path('routes/api.php'));
+
+        Route::middleware('api')
+            ->prefix('api')
+            ->group(base_path('routes/models/userRoutes.php'));
+    }
+
+    /**
+     * Contiene el mapeo de rutas con el middleware 'web'
+     * @return void
+     */
+    protected function mapWebRoutes(): void
+    {
+        Route::middleware('web')
+            ->group(base_path('routes/web.php'));
     }
 }

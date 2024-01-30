@@ -2,22 +2,25 @@
 
 namespace App\Services;
 
-use App\Models\User;
+use App\Interfaces\User\UserServiceInterface;
 use App\Helpers\Helper;
-
-class UserService
+use App\Models\User;
+use Illuminate\Pagination\LengthAwarePaginator;
+class UserService implements UserServiceInterface
 {
-    protected $user;
-
-    public function __construct()
-    {
-        $this->user = new User;
-    }
+    /**
+     * Constructor
+     * @param User $user
+     */
+    public function __construct(
+        protected User $user,
+    ) {}
 
     /**
-     * Muestra el listado de usuarios
+     * Muestra el listado de usuarios paginados
+     * @return LengthAwarePaginator
      */
-    public function index()
+    public function index(): LengthAwarePaginator
     {
         $User = $this->user::paginate(25);
 
@@ -27,8 +30,9 @@ class UserService
     /**
      * Muestra un usuario concreto
      * @param User $User
+     * @return User
      */
-    public function show(User $user)
+    public function show(User $user): User
     {
         return $user;
     }
@@ -36,8 +40,12 @@ class UserService
     /**
      * Guarda el usuario
      * @param Array $attributes
+     * @return User
      */
-    public function store(array $attributes)
+
+     //TODO: implementar el envio de contraseña por correo al crear un nuevo usuario
+
+    public function store(array $attributes): User
     {
         $attributes['password'] = Helper::randomCode();
 
@@ -49,11 +57,11 @@ class UserService
     }
 
     /**
-     * Actualiza un Usero
+     * Actualiza un usuario
      * @param User $request
      * @param Array $attributes
      */
-    public function update(array $attributes, User $user)
+    public function update(array $attributes, User $user): User
     {
         $user->update($attributes);
 
@@ -61,10 +69,10 @@ class UserService
     }
 
     /**
-     * Elimina un Usero
+     * Elimina un usuario
      * @param User $user
      */
-    public function destroy(User $user)
+    public function destroy(User $user): User
     {
         $user->delete();
 
