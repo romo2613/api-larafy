@@ -9,7 +9,7 @@
 
 ## ▶️Sobre el Proyecto
 
-Este proyecto es una API desarrollada con Laravel, diseñada para gestionar archivos multimedia al estilo de Spotify. La API permite a los usuarios cargar, almacenar, y transmitir archivos multimedia, proporcionando una experiencia de usuario fluida y eficiente. Cada usuario podrá contar con su propia biblioteca multimedia.
+Este proyecto es una API desarrollada con Laravel bajo arquitectura hexagonal y DDD ⚠️(se esta realizando la migración actualmente), diseñada para gestionar archivos multimedia al estilo de Spotify. La API permite a los usuarios cargar, almacenar, y transmitir archivos multimedia, proporcionando una experiencia de usuario fluida y eficiente. Cada usuario podrá contar con su propia biblioteca multimedia.
 
 ##  🔍 Características Principales
 
@@ -23,16 +23,17 @@ Este proyecto está en constante desarrollo, con planes para añadir más caract
 
 Estado de desarrollo en el que se encuentran las características principales del proyecto. Se añadirán más en el futuro.
 
+⚠️ 12/02/2024 - Se esta migrado el proyecto a arquitectira hexagonal y DDD
 
 - **Usuarios**
-  - ✅ Index
-  - ✅ Show
-  - ✅ Create
-  - ✅ Update
-  - ✅ Delete
+  - ⚠️ Index
+  - ⚠️ Show
+  - ⚠️ Create
+  - ⚠️ Update
+  - ⚠️ Delete
 - **Autenticación**: mediante Laravel Sactum se obtiene un Bearer Token
-  - ✅ Login
-  - ✅ Registro
+  - ⚠️ Login
+  - ⚠️ Registro
 - ✅ **Paises**: Al realizar el seeder se obtiene una lista actualizada de paises mediante API. Si la API no responde correctamente se obtiene desde un JSON local.
 
 - **❌ Gestión de roles y permisos**
